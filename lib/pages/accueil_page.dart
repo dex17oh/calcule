@@ -5,7 +5,10 @@ class AccueilPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Calcul Moyenne Université")),
+      appBar: AppBar(
+        title: Text("Calcul Moyenne Université !"),
+        
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
