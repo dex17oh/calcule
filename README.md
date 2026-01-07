@@ -10,3 +10,7 @@ Fonctionnalités :
 - Plusieurs spécialités
 
 Université Ibn Khaldoun - Tiaret
+
+Équipe de projet :
+ - OULD HOCINE sofiane 
+ - Abdelaziz benallou 
