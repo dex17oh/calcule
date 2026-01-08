@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:moyenne_app/widgets/appbar/appBar.dart';
 import 'choix_semestre_page.dart';
 
 class ChoixAnneePage extends StatelessWidget {
@@ -9,14 +10,31 @@ class ChoixAnneePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Choix de l'année")),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ElevatedButton(
-              child: Text("Master 1"),
-              onPressed: () {
+      backgroundColor: const Color(0xFFF1F6F9),
+      appBar: const CustomAppBar(title: "Choix de l'année"),
+
+      body: ListView(
+        padding: const EdgeInsets.all(16),
+        children: [
+          Card(
+            color: Colors.white,
+            elevation: 0.5,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(6),
+            ),
+            margin: const EdgeInsets.symmetric(vertical: 6),
+            child: ListTile(
+              leading: Icon(Icons.school, color: Color(0xFF5FA8B6), size: 30),
+              title: const Text(
+                "Master 1",
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+              ),
+              trailing: Icon(
+                Icons.arrow_forward_ios,
+                size: 16,
+                color: Color(0xFF5FA8B6),
+              ),
+              onTap: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -26,10 +44,31 @@ class ChoixAnneePage extends StatelessWidget {
                 );
               },
             ),
-            SizedBox(height: 20),
-            ElevatedButton(
-              child: Text("Master 2"),
-              onPressed: () {
+          ),
+
+          Card(
+            color: Colors.white,
+            elevation: 0.5,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(6),
+            ),
+            margin: const EdgeInsets.symmetric(vertical: 6),
+            child: ListTile(
+              leading: Icon(
+                Icons.school_outlined,
+                color: Color(0xFF5FA8B6),
+                size: 30,
+              ),
+              title: const Text(
+                "Master 2",
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+              ),
+              trailing: Icon(
+                Icons.arrow_forward_ios,
+                size: 16,
+                color: Color(0xFF5FA8B6),
+              ),
+              onTap: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -39,8 +78,8 @@ class ChoixAnneePage extends StatelessWidget {
                 );
               },
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
