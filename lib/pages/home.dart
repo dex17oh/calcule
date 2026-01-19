@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:moyenne_app/pages/profile/profile.dart';
-import 'package:moyenne_app/widgets/BottomNavigationBare%20/bar_item.dart';
-import 'package:moyenne_app/widgets/BottomNavigationBare%20/build_nav_bar.dart';
+import 'package:moyenne_app/widgets/bottomNavigationBare/bar_item.dart';
+import 'package:moyenne_app/widgets/bottomNavigationBare/build_nav_bar.dart';
 import 'choix_annee_page.dart';
 
 class AccueilPage extends StatefulWidget {
