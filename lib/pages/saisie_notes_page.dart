@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:moyenne_app/widgets/appbar/appBar.dart';
 import '../data/programmes.dart';
 import '../models/module.dart';
 import '../models/notes.dart';
@@ -82,8 +83,9 @@ class _SaisieNotesPageState extends State<SaisieNotesPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("${widget.specialite} ${widget.annee} ${widget.semestre}"),
+      backgroundColor: Color(0xFFF1F6F9),
+      appBar: CustomAppBar(
+        title: "${widget.specialite} ${widget.annee} ${widget.semestre}",
       ),
       body: modules.isEmpty
           ? Center(child: Text("Semestre non encore configuré"))

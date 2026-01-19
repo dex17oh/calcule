@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'pages/accueil_page.dart';
+import 'package:moyenne_app/pages/splash_screen/sp_screen.dart';
+
 
 void main() {
   runApp(UnivApp());
@@ -11,7 +12,7 @@ class UnivApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Calcul Moyenne Université",
-      home: AccueilPage(),
+      home: SplashScreen(),
     );
   }
 }
