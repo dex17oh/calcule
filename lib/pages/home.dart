@@ -70,6 +70,7 @@ class _AccueilPageState extends State<AccueilPage> {
           fontSize: 24,
           fontWeight: FontWeight.w400,
           color: Colors.white,
+          fontFamily: "Roboto"
         ),
       ),
       centerTitle: true,
@@ -114,7 +115,7 @@ class _AccueilPageState extends State<AccueilPage> {
             ),
             title: Text(
               sp["name"],
-              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
             ),
             trailing: Icon(
               Icons.arrow_forward_ios,

@@ -27,7 +27,7 @@ class ChoixAnneePage extends StatelessWidget {
               leading: Icon(Icons.school, color: Color(0xFF5FA8B6), size: 30),
               title: const Text(
                 "Master 1",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
               ),
               trailing: Icon(
                 Icons.arrow_forward_ios,
@@ -61,7 +61,7 @@ class ChoixAnneePage extends StatelessWidget {
               ),
               title: const Text(
                 "Master 2",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
               ),
               trailing: Icon(
                 Icons.arrow_forward_ios,
