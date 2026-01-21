@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:moyenne_app/widgets/appbar/appBar.dart';
+import 'package:moyenne_app/widgets/textfield/textfield.dart';
 import '../data/programmes.dart';
 import '../models/module.dart';
 import '../models/notes.dart';
@@ -55,11 +56,15 @@ class _SaisieNotesPageState extends State<SaisieNotesPage> {
       if (!noteValide(exam) ||
           (m.hasTD && (td == null || !noteValide(td))) ||
           (m.hasTP && (tp == null || !noteValide(tp)))) {
-        showDialog(
-          context: context,
-          builder: (_) => AlertDialog(
-            title: Text("Erreur"),
-            content: Text("Toutes les notes doivent être entre 0 et 20"),
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: const Text("Toutes les notes doivent être entre 0 et 20"),
+            backgroundColor: Colors.red,
+            duration: const Duration(seconds: 3),
+            behavior: SnackBarBehavior.floating,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
           ),
         );
         return;
@@ -95,39 +100,43 @@ class _SaisieNotesPageState extends State<SaisieNotesPage> {
                 children: [
                   ...modules.map(
                     (m) => Card(
+                      color: Colors.white,
                       child: Padding(
                         padding: EdgeInsets.all(10),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              m.nom,
-                              style: TextStyle(fontWeight: FontWeight.bold),
+                            text(m),
+                            Row(
+                              children: [
+                                if (m.hasTD)
+                                  Expanded(
+                                    child: Textfield(
+                                      examCtrl: tdCtrl,
+                                      m: m,
+                                      label: "TD",
+                                    ),
+                                  ),
+
+                                if (m.hasTP)
+                                  Expanded(
+                                    child: Textfield(
+                                      examCtrl: tpCtrl,
+                                      m: m,
+                                      label: "TP",
+                                    ),
+                                  ),
+                              ],
                             ),
-                            TextField(
-                              controller: examCtrl[m.nom],
-                              keyboardType: TextInputType.number,
-                              decoration: InputDecoration(labelText: "Examen"),
-                            ),
-                            if (m.hasTD)
-                              TextField(
-                                controller: tdCtrl[m.nom],
-                                keyboardType: TextInputType.number,
-                                decoration: InputDecoration(labelText: "TD"),
-                              ),
-                            if (m.hasTP)
-                              TextField(
-                                controller: tpCtrl[m.nom],
-                                keyboardType: TextInputType.number,
-                                decoration: InputDecoration(labelText: "TP"),
-                              ),
+                            Textfield(examCtrl: examCtrl, m: m, label: "Exams"),
                           ],
                         ),
                       ),
                     ),
                   ),
                   SizedBox(height: 20),
-                  ElevatedButton(onPressed: calculer, child: Text("Calculer")),
+                  actionButton("Calculer la moyenne", calculer),
+
                   SizedBox(height: 20),
                   Text(
                     "Moyenne : ${moyenne.toStringAsFixed(2)}",
@@ -137,6 +146,49 @@ class _SaisieNotesPageState extends State<SaisieNotesPage> {
                 ],
               ),
             ),
+    );
+  }
+
+  ElevatedButton calc() =>
+      ElevatedButton(onPressed: calculer, child: Text("Calculer"));
+
+  Widget actionButton(String title, VoidCallback onTap) {
+    return Container(
+      width: double.infinity,
+      margin: const EdgeInsets.symmetric(vertical: 8),
+      child: ElevatedButton(
+        onPressed: onTap,
+        style: ElevatedButton.styleFrom(
+          padding: const EdgeInsets.symmetric(vertical: 14),
+          backgroundColor: Colors.blue.shade600,
+          elevation: 3,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
+        ),
+        child: Text(
+          title,
+          style: const TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+          ),
+        ),
+      ),
+    );
+  }
+
+  Container text(Module m) {
+    return Container(
+      margin: EdgeInsets.symmetric(vertical: 8),
+      child: Text(
+        m.nom,
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+          color: Colors.black,
+          fontSize: 16,
+        ),
+      ),
     );
   }
 }
