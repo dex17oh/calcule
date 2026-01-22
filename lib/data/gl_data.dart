@@ -3,41 +3,62 @@ import '../models/module.dart';
 final Map<String, Map<String, List<Module>>> glProgrammes = {
   "M1": {
     "S1": [
+      //UE fondamentales1
       Module(
         nom: "Génie Logiciel Avancé",
-        coeff: 3,
-        hasTD: true,
-        hasTP: true,
-        examOnly: false,
-      ),
-      Module(
-        nom: "Méthodes Formelles",
         coeff: 2,
         hasTD: true,
         hasTP: false,
         examOnly: false,
       ),
       Module(
-        nom: "Conception Orientée Objet",
+        nom: "Programmation Fonctionnelle",
         coeff: 3,
         hasTD: true,
         hasTP: true,
         examOnly: false,
       ),
+
+      //UE fondamentales 2
       Module(
-        nom: "Bases de données avancées",
+        nom: "BDD avancées & DN",
         coeff: 2,
         hasTD: false,
         hasTP: true,
         examOnly: false,
       ),
       Module(
-        nom: "Systèmes d'information",
+        nom: "Architecture et administration de SGBD",
+        coeff: 2,
+        hasTD: false,
+        hasTP: true,
+        examOnly: false,
+      ),
+
+      // UE méthodologie
+      Module(
+        nom: "Complexité Algorithmique",
+        coeff: 2,
+        hasTD: true,
+        hasTP: true,
+        examOnly: false,
+      ),
+      Module(
+        nom: "Gestion de la qualité",
         coeff: 2,
         hasTD: true,
         hasTP: false,
         examOnly: false,
       ),
+      //UE découverte
+      Module(
+        nom: "Logique pour l'IA",
+        coeff: 2,
+        hasTD: true,
+        hasTP: false,
+        examOnly: false,
+      ),
+      //UE transversales
       Module(
         nom: "Anglais technique",
         coeff: 1,
@@ -45,50 +66,70 @@ final Map<String, Map<String, List<Module>>> glProgrammes = {
         hasTP: false,
         examOnly: true,
       ),
-      Module(
-        nom: "Programmation avancée",
-        coeff: 2,
-        hasTD: false,
-        hasTP: true,
-        examOnly: false,
-      ),
     ],
     "S2": [
+      //UE fondamentales 1
       Module(
-        nom: "Qualité logicielle et tests",
-        coeff: 3,
-        hasTD: true,
-        hasTP: true,
-        examOnly: false,
-      ),
-      Module(
-        nom: "Architecture logicielle",
-        coeff: 3,
-        hasTD: true,
-        hasTP: false,
-        examOnly: false,
-      ),
-      Module(
-        nom: "Gestion de projet logiciel",
+        nom: "Spécification et Conception Logicielle",
         coeff: 2,
         hasTD: true,
         hasTP: false,
         examOnly: false,
       ),
       Module(
-        nom: "Développement web avancé",
-        coeff: 3,
+        nom: "Architecture et Développement logicielle",
+        coeff: 2,
+        hasTD: false,
+        hasTP: true,
+        examOnly: false,
+      ),
+
+      //UE fondamentales2
+      Module(
+        nom: "Construction d'Applications Réparties",
+        coeff: 2,
         hasTD: false,
         hasTP: true,
         examOnly: false,
       ),
       Module(
-        nom: "Sécurité des applications",
+        nom: "Programmation web",
+        coeff: 1,
+        hasTD: false,
+        hasTP: false,
+        examOnly: true,
+      ),
+      Module(
+        nom: "Fondements de l'Intelligence Artificielle",
         coeff: 2,
         hasTD: true,
         hasTP: false,
         examOnly: false,
       ),
+      //UE méthodologie
+      Module(
+        nom: "Validation formelle des sys informatique",
+        coeff: 3,
+        hasTD: true,
+        hasTP: true,
+        examOnly: false,
+      ),
+      Module(
+        nom: "Mathématiques Appliquées",
+        coeff: 2,
+        hasTD: true,
+        hasTP: false,
+        examOnly: false,
+      ),
+      //UE découverte
+      Module(
+        nom: "Sécurité Informatique",
+        coeff: 2,
+        hasTD: false,
+        hasTP: true,
+        examOnly: false,
+      ),
+      //UE transversale
       Module(
         nom: "Anglais technique 2",
         coeff: 1,
@@ -101,47 +142,60 @@ final Map<String, Map<String, List<Module>>> glProgrammes = {
 
   "M2": {
     "S3": [
+      //UE fondamentales
       Module(
-        nom: "Ingénierie des exigences",
-        coeff: 3,
-        hasTD: true,
-        hasTP: false,
-        examOnly: false,
-      ),
-      Module(
-        nom: "DevOps",
+        nom: " dev app mob sous android",
         coeff: 3,
         hasTD: false,
         hasTP: true,
         examOnly: false,
       ),
       Module(
-        nom: "Refactoring et maintenance",
-        coeff: 2,
-        hasTD: true,
-        hasTP: false,
+        nom: "Maintenance logicielle",
+        coeff: 3,
+        hasTD: false,
+        hasTP: true,
         examOnly: false,
       ),
       Module(
-        nom: "Audit logiciel",
-        coeff: 2,
+        nom: "XML Avancé et Web 2.0",
+        coeff: 3,
+        hasTD: false,
+        hasTP: true,
+        examOnly: false,
+      ),
+
+      //UE méthodologie
+      Module(
+        nom: "Gestion de projet",
+        coeff: 3,
         hasTD: true,
-        hasTP: false,
+        hasTP: true,
         examOnly: false,
       ),
       Module(
-        nom: "Méthodologie de recherche",
+        nom: "Techniques d'expression et rédaction scientifique",
+        coeff: 2,
+        hasTD: false,
+        hasTP: false,
+        examOnly: true,
+      ),
+
+      //UE découverte
+      Module(
+        nom: "Législation et Déontologie de travaile",
         coeff: 1,
         hasTD: false,
         hasTP: false,
         examOnly: true,
       ),
+      //UE tranşversales
       Module(
-        nom: "Conduite de projet",
-        coeff: 2,
-        hasTD: true,
+        nom: "Anglais 3",
+        coeff: 1,
+        hasTD: false,
         hasTP: false,
-        examOnly: false,
+        examOnly: true,
       ),
     ],
     "S4": [
@@ -151,7 +205,7 @@ final Map<String, Map<String, List<Module>>> glProgrammes = {
         hasTD: false,
         hasTP: false,
         examOnly: true,
-      )
+      ),
     ],
   },
 };

@@ -3,6 +3,7 @@ import '../models/module.dart';
 final Map<String, Map<String, List<Module>>> iadProgrammes = {
   "M1": {
     "S1": [
+      // UE fondamentales 1
       Module(
         nom: "Apprentissage Artificiel",
         coeff: 3,
@@ -17,6 +18,8 @@ final Map<String, Map<String, List<Module>>> iadProgrammes = {
         hasTP: false,
         examOnly: false,
       ),
+
+      //UE fondamentales 2
       Module(
         nom: "Réseaux de neurones et AP1",
         coeff: 3,
@@ -31,6 +34,8 @@ final Map<String, Map<String, List<Module>>> iadProgrammes = {
         hasTP: false,
         examOnly: false,
       ),
+
+      //UE méthodologie
       Module(
         nom: "Bases de données avancées et Data Mining",
         coeff: 3,
@@ -38,13 +43,15 @@ final Map<String, Map<String, List<Module>>> iadProgrammes = {
         hasTP: true,
         examOnly: false,
       ),
+
       Module(
         nom: "Modèles graphiques probabilistes",
         coeff: 2,
-        hasTD: true,
-        hasTP: false,
+        hasTD: false,
+        hasTP: true,
         examOnly: false,
       ),
+      //UE découverte
       Module(
         nom: "Anglais technique",
         coeff: 1,
@@ -52,6 +59,7 @@ final Map<String, Map<String, List<Module>>> iadProgrammes = {
         hasTP: false,
         examOnly: true,
       ),
+      //UE transversales
       Module(
         nom: "Python",
         coeff: 2,
@@ -62,6 +70,7 @@ final Map<String, Map<String, List<Module>>> iadProgrammes = {
     ],
 
     "S2": [
+      //UE fondamentales 1
       Module(
         nom: "Réseaux de neurones et AP2",
         coeff: 3,
@@ -76,6 +85,8 @@ final Map<String, Map<String, List<Module>>> iadProgrammes = {
         hasTP: false,
         examOnly: false,
       ),
+
+      //UE fondamentales 2
       Module(
         nom: "Fondements du Data Science",
         coeff: 3,
@@ -86,24 +97,27 @@ final Map<String, Map<String, List<Module>>> iadProgrammes = {
       Module(
         nom: "Analyse et Traitement des Images Numériques",
         coeff: 2,
-        hasTD: true,
-        hasTP: false,
+        hasTD: false,
+        hasTP: true,
         examOnly: false,
       ),
+
+      // UE méthodologie
       Module(
         nom: "Modélisation et simulation",
         coeff: 2,
-        hasTD: true,
-        hasTP: false,
+        hasTD: false,
+        hasTP: true,
         examOnly: false,
       ),
       Module(
         nom: "Bases de données NoSQL et Fast Data",
         coeff: 2,
-        hasTD: true,
-        hasTP: false,
+        hasTD: false,
+        hasTP: true,
         examOnly: false,
       ),
+      //UE découverte
       Module(
         nom: "Anglais technique 2",
         coeff: 1,
@@ -111,11 +125,12 @@ final Map<String, Map<String, List<Module>>> iadProgrammes = {
         hasTP: false,
         examOnly: true,
       ),
+      //UE transversales
       Module(
         nom: "Programmation Orientée Objet Avancée",
         coeff: 2,
-        hasTD: true,
-        hasTP: false,
+        hasTD: false,
+        hasTP: true,
         examOnly: false,
       ),
     ],
@@ -124,10 +139,11 @@ final Map<String, Map<String, List<Module>>> iadProgrammes = {
   "M2": {
     "S3": [
       Module(
+        //UE fondamentales 1
         nom: "Traitement Automatique des Langues Naturelles",
         coeff: 2,
-        hasTD: true,
-        hasTP: false,
+        hasTD: false,
+        hasTP: true,
         examOnly: false,
       ),
       Module(
@@ -137,11 +153,13 @@ final Map<String, Map<String, List<Module>>> iadProgrammes = {
         hasTP: true,
         examOnly: false,
       ),
+
+      //UE fondamentales 2
       Module(
         nom: "Blockchain",
         coeff: 3,
-        hasTD: true,
-        hasTP: false,
+        hasTD: false,
+        hasTP: true,
         examOnly: false,
       ),
       Module(
@@ -158,20 +176,24 @@ final Map<String, Map<String, List<Module>>> iadProgrammes = {
         hasTP: false,
         examOnly: true,
       ),
+
+      // UE methodologie
       Module(
         nom: "Vision par ordinateur",
         coeff: 2,
-        hasTD: true,
-        hasTP: false,
+        hasTD: false,
+        hasTP: true,
         examOnly: false,
       ),
       Module(
         nom: "Systèmes multi-agents",
         coeff: 2,
-        hasTD: true,
-        hasTP: false,
+        hasTD: false,
+        hasTP: true,
         examOnly: false,
       ),
+
+      //UE découverte
       Module(
         nom: "Méthodologie de la rédaction scientifique",
         coeff: 1,
@@ -179,6 +201,7 @@ final Map<String, Map<String, List<Module>>> iadProgrammes = {
         hasTP: false,
         examOnly: true,
       ),
+      //UE transversales
       Module(
         nom: "Conduite de projet",
         coeff: 2,
@@ -196,7 +219,7 @@ final Map<String, Map<String, List<Module>>> iadProgrammes = {
         hasTD: false,
         hasTP: false,
         examOnly: true,
-      )
+      ),
     ],
   },
 };

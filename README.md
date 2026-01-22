@@ -8,7 +8,7 @@ Features:
 - Year & Semester selection (M1 / M2 – S1 to S4)
 - GPA calculation with real coefficients
 - Water Drop Bottom Navigation Bar
-- Profile page
+Q- Profile page
 - Custom reusable AppBar
 - Clean and responsive UI
 
