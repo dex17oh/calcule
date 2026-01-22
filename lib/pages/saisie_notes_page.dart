@@ -5,13 +5,15 @@ import '../data/programmes.dart';
 import '../models/module.dart';
 import '../models/notes.dart';
 import '../logic/calcul.dart';
+import '../db/database_helper.dart';
 
 class SaisieNotesPage extends StatefulWidget {
   final String specialite;
   final String annee;
   final String semestre;
 
-  SaisieNotesPage({
+  const SaisieNotesPage({
+    super.key,
     required this.specialite,
     required this.annee,
     required this.semestre,
@@ -42,9 +44,33 @@ class _SaisieNotesPageState extends State<SaisieNotesPage> {
       tdCtrl[m.nom] = TextEditingController();
       tpCtrl[m.nom] = TextEditingController();
     }
+
+    loadSavedNotes(); //  Charger depuis SQLite
   }
 
-  void calculer() {
+  void loadSavedNotes() async {
+    final data = await DatabaseHelper.instance.loadNotes(
+      specialite: widget.specialite,
+      annee: widget.annee,
+      semestre: widget.semestre,
+    );
+
+    data.forEach((module, values) {
+      if (examCtrl[module] != null && values['exam'] != null) {
+        examCtrl[module]!.text = values['exam']!.toString();
+      }
+      if (tdCtrl[module] != null && values['td'] != null) {
+        tdCtrl[module]!.text = values['td']!.toString();
+      }
+      if (tpCtrl[module] != null && values['tp'] != null) {
+        tpCtrl[module]!.text = values['tp']!.toString();
+      }
+    });
+
+    setState(() {}); // rafraîchir UI
+  }
+
+  void calculer() async {
     double sum = 0;
     double sumCoeff = 0;
 
@@ -75,34 +101,45 @@ class _SaisieNotesPageState extends State<SaisieNotesPage> {
         Notes(exam: exam, td: td, tp: tp),
       );
 
+      //  Sauvegarde dans SQLite
+      await DatabaseHelper.instance.saveNote(
+        specialite: widget.specialite,
+        annee: widget.annee,
+        semestre: widget.semestre,
+        module: m.nom,
+        exam: exam,
+        td: td,
+        tp: tp,
+      );
+
       sum += noteModule * m.coeff;
       sumCoeff += m.coeff;
     }
 
     setState(() {
       moyenne = sum / sumCoeff;
-      decision = moyenne >= 10 ? "✅ Admis" : "❌ Ajourné";
+      decision = moyenne >= 10 ? "Bsa7tak" : "A7cham 3la rohak";
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF1F6F9),
+      backgroundColor: const Color(0xFFF1F6F9),
       appBar: CustomAppBar(
         title: "${widget.specialite} ${widget.annee} ${widget.semestre}",
       ),
       body: modules.isEmpty
-          ? Center(child: Text("Semestre non encore configuré"))
+          ? const Center(child: Text("Semestre non encore configuré"))
           : SingleChildScrollView(
-              padding: EdgeInsets.all(16),
+              padding: const EdgeInsets.all(16),
               child: Column(
                 children: [
                   ...modules.map(
                     (m) => Card(
                       color: Colors.white,
                       child: Padding(
-                        padding: EdgeInsets.all(10),
+                        padding: const EdgeInsets.all(10),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -117,7 +154,6 @@ class _SaisieNotesPageState extends State<SaisieNotesPage> {
                                       label: "TD",
                                     ),
                                   ),
-
                                 if (m.hasTP)
                                   Expanded(
                                     child: Textfield(
@@ -128,29 +164,29 @@ class _SaisieNotesPageState extends State<SaisieNotesPage> {
                                   ),
                               ],
                             ),
-                            Textfield(examCtrl: examCtrl, m: m, label: "Exams"),
+                            Textfield(
+                              examCtrl: examCtrl,
+                              m: m,
+                              label: "Examen",
+                            ),
                           ],
                         ),
                       ),
                     ),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   actionButton("Calculer la moyenne", calculer),
-
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Text(
                     "Moyenne : ${moyenne.toStringAsFixed(2)}",
-                    style: TextStyle(fontSize: 22),
+                    style: const TextStyle(fontSize: 22),
                   ),
-                  Text(decision, style: TextStyle(fontSize: 22)),
+                  Text(decision, style: const TextStyle(fontSize: 22)),
                 ],
               ),
             ),
     );
   }
-
-  ElevatedButton calc() =>
-      ElevatedButton(onPressed: calculer, child: Text("Calculer"));
 
   Widget actionButton(String title, VoidCallback onTap) {
     return Container(
@@ -160,7 +196,7 @@ class _SaisieNotesPageState extends State<SaisieNotesPage> {
         onPressed: onTap,
         style: ElevatedButton.styleFrom(
           padding: const EdgeInsets.symmetric(vertical: 14),
-          backgroundColor: Colors.blue.shade600,
+          backgroundColor: Colors.blue,
           elevation: 3,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
@@ -178,12 +214,12 @@ class _SaisieNotesPageState extends State<SaisieNotesPage> {
     );
   }
 
-  Container text(Module m) {
+  Widget text(Module m) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 8),
+      margin: const EdgeInsets.symmetric(vertical: 8),
       child: Text(
         m.nom,
-        style: TextStyle(
+        style: const TextStyle(
           fontWeight: FontWeight.bold,
           color: Colors.black,
           fontSize: 16,
